@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Mon cœur 💗</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;overflow-x:hidden;text-align:center;
+  font-family:Arial,sans-serif;color:#8c315b;
+  background:linear-gradient(135deg,#ffe0ec,#fff0f5,#f8d4ff)
+}
+.container{
+  position:relative;z-index:2;width:90%;max-width:480px;
+  margin:45px auto;padding:28px 20px;
+  background:rgba(255,255,255,.86);border-radius:25px;
+  box-shadow:0 10px 35px #d77ca544
+}
+h1{font-size:29px}p{line-height:2}
+button{
+  border:0;border-radius:30px;padding:13px 22px;margin:10px 4px;
+  background:#d94e86;color:white;font-size:16px;cursor:pointer
+}
+#videoBox{display:none;margin-top:20px;animation:appear .8s ease}
+video{width:100%;max-height:65vh;border-radius:16px;background:#222}
+.heart{position:fixed;bottom:-40px;z-index:1;pointer-events:none;animation:floatUp linear forwards}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@keyframes appear{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.note{font-size:13px;color:#9b6680}
+</style>
+</head>
+<body>
+<div class="container">
+  <div style="font-size:55px">🎂💗🎀</div>
+  <h1>Happy Birthday, Mon cœur! 💕</h1>
+  <p>
+    امروز روز یک آدم خاص است؛ کسی که لایق لبخندهای قشنگ،
+    لحظه‌های شیرین و تمام خوشی‌های دنیاست. 🌷
+  </p>
+  <p>یک سورپرایز کوچک برای تو آماده کرده‌ام...</p>
+  <button onclick="openSurprise()">سورپرایزت را باز کن 💌</button>
+
+  <div id="videoBox">
+    <h2>برای تو، Mon cœur 💖</h2>
+    <video id="surpriseVideo" controls playsinline preload="metadata">
+      <source src="surprise.mp4" type="video/mp4">
+      مرورگر شما نمی‌تواند این ویدیو را پخش کند.
+    </video>
+    <p>امیدوارم لبخند روی لبت بیاید. 💗</p>
+  </div>
+  <p class="note">با عشق و بهترین آرزوها برای تو 🎀</p>
+</div>
+<script>
+function openSurprise(){
+  document.getElementById('videoBox').style.display='block';
+  for(let i=0;i<20;i++) setTimeout(createHeart,i*120);
+}
+function createHeart(){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.textContent=['💗','💕','💖','💘','🎀'][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(18+Math.random()*20)+'px';
+  h.style.animationDuration=(3+Math.random()*4)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7500);
+}
+</script>
+</body>
+</html>
